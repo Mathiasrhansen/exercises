@@ -3,7 +3,8 @@ const lowerBtn = document.querySelector(".lower");
 const higherBtn = document.querySelector(".higher");
 const correctBtn = document.querySelector(".correct");
 const guessText = document.querySelector(".computerGuess");
-let computerGuess, min, max;
+const guessCounter = document.querySelector(".guessCounter");
+let computerGuess, min, max, guessNum;
 
 document.addEventListener("DOMContentLoaded", init);
 
@@ -14,6 +15,7 @@ function init() {
     computerGuess = 50;
     min = 0;
     max = 100;
+    guessNum = 1;
 }
 
 startBtn.addEventListener("click", startGame);
@@ -23,14 +25,18 @@ function startGame() {
     higherBtn.disabled = false;
     correctBtn.disabled = false;
     startBtn.disabled = true;
+    guessCounter.setAttribute("class", "invisible");
     guessText.classList.remove("invisible");
     guessText.textContent = `Jeg gætter på ${computerGuess}`;
-    lowerBtn.addEventListener("click", higherGuess);
-    higherBtn.addEventListener("click", lowerGuess);
-    correctBtn.addEventListener("click", correctGuess);
 }
 
+lowerBtn.addEventListener("click", higherGuess);
+higherBtn.addEventListener("click", lowerGuess);
+correctBtn.addEventListener("click", correctGuess);
+
 function lowerGuess() {
+    guessNum += 1;
+    console.log(guessNum);
     max = computerGuess-1;
     let newGuess = Math.floor((min+max)/2);
     computerGuess = newGuess;
@@ -38,6 +44,8 @@ function lowerGuess() {
 }
 
 function higherGuess() {
+    guessNum += 1;
+    console.log(guessNum);
     min = computerGuess+1;
     let newGuess = Math.floor((min + max)/2);
     computerGuess = newGuess;
@@ -50,10 +58,13 @@ function correctGuess() {
     correctBtn.disabled = true;
     startBtn.disabled = false;
     guessText.textContent = `Tallet du tænkte på, var ${computerGuess}`;
+    guessCounter.textContent = `Det tog ${guessNum} forsøg`
+    guessCounter.classList.remove("invisible");
     launchConfetti();
     min = 0;
     max = 100;
     computerGuess = 50;
+    guessNum = 0;
 }
 
 function launchConfetti() {
@@ -67,7 +78,6 @@ function launchConfetti() {
     const confettiCount = 150;
     const colors = ['#e2e2e2', '#2c34af', '#45b7d1', '#8a3990', '#6c5ce7', '#a29bfe', '#fd79a8', '#61b4cb'];
     
-    // Create confetti pieces
     for (let i = 0; i < confettiCount; i++) {
         confettiPieces.push({
             x: Math.random() * canvas.width,
@@ -103,9 +113,8 @@ function launchConfetti() {
                 piece.y += piece.velocityY;
                 piece.x += piece.velocityX;
                 piece.rotation += piece.rotationSpeed;
-                piece.velocityY += 0.1; // gravity
+                piece.velocityY += 0.1;
                 
-                // Fade out near the bottom
                 if (piece.y > canvas.height - 100) {
                     piece.opacity -= 0.02;
                 }
