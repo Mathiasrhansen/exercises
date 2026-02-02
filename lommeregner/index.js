@@ -24,16 +24,53 @@ function klik(evt) {
   if (typeOfInput === "num") {
     // hvis det er et tal, så tjek om det er første eller andet tal der skal gemmes(!) og husk at tallene er strings
     // og det er en fordel her, men ikke nå der skal regnes
+
+    if (regneArt == "") {
+      firstNumVal += btnClicked;
+    }
+
+    else {
+      secondNumVal += btnClicked;
+    }
+
   } else if (typeOfInput === "regneart") {
     // hvis det er en regneart, så gem den
+      regneArt = evt.target.dataset.func;
+      disableOperators();
+
   } else if (typeOfInput === "ligmed") {
     // hvis det er ligmed, så regn regnestykket ud med de gemte værdier
     // ligesom i den simple lommeregner.  Der skal parseInt() på strings til tal
     // skriv resultatet til skærmen med updateScreen()
+
+    const num1 = parseInt(firstNumVal);
+    const num2 = parseInt(secondNumVal);
+    let resultat = 0;
+    
+    if (regneArt === "+") {
+      resultat = num1 + num2;
+    } else if (regneArt === "-") {
+      resultat = num1 - num2;
+    } else if (regneArt === "*") {
+      resultat = num1 * num2;
+    } else if (regneArt === "/") {
+
+      if (secondNumVal === "0") {
+        resultat = "error"
+      }
+      else {
+        resultat = num1 / num2;
+      }
+    }
+
+    updateScreen(resultat);
+    
   } else if (typeOfInput === "CLEAR") {
     // reset alt: lav en reset funktion der nulstiller alle variabler
     // skærmen bliver nulstillet med resetScreen()
+    resetAll();
     resetScreen();
+    enableOperators();
   }
 }
 
@@ -67,4 +104,22 @@ function updateScreen(chars) {
 function resetScreen() {
   displayContent = "";
   display.value = "0";
+}
+
+function resetAll() {
+  firstNumVal = "";
+  secondNumVal = "";
+  regneArt = "";
+}
+
+function disableOperators() {
+  document.querySelectorAll('[data-func="+"], [data-func="-"], [data-func="*"], [data-func="/"]').forEach((btn) => {
+    btn.disabled = true;
+  });
+}
+
+function enableOperators() {
+  document.querySelectorAll('[data-func="+"], [data-func="-"], [data-func="*"], [data-func="/"]').forEach((btn) => {
+    btn.disabled = false;
+  });
 }
