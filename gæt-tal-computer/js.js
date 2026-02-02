@@ -64,7 +64,7 @@ function correctGuess() {
     min = 0;
     max = 100;
     computerGuess = 50;
-    guessNum = 0;
+    guessNum = 1;
 }
 
 function launchConfetti() {
