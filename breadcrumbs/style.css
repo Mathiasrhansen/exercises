@@ -1,0 +1,25 @@
+ul {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+li:not(:first-child) {
+    list-style: "/ ";
+}
+
+li:first-child {
+    list-style-type: none;
+} 
+
+ul:not(:last-child) {
+    pointer-events: all;
+}
+
+a:visited {
+    color: blue;
+}
+
+p {
+    margin: 0;
+}

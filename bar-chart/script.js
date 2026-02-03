@@ -1,5 +1,4 @@
 const list = document.querySelector("ul");
-
 const columnArray = [];
 
 setInterval(generateColumns, 1000);
