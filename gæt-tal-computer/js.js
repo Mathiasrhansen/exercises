@@ -75,7 +75,7 @@ function launchConfetti() {
     canvas.height = window.innerHeight;
     
     const confettiPieces = [];
-    const confettiCount = 150000;
+    const confettiCount = 1000;
     const colors = ['#e2e2e2', '#2c34af', '#45b7d1', '#8a3990', '#6c5ce7', '#a29bfe', '#fd79a8', '#61b4cb'];
     
     for (let i = 0; i < confettiCount; i++) {
