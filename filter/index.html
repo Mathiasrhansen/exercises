@@ -1,32 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script type="module" src="script.js"></script>
-</head>
+  </head>
 
-<body>
-
+  <body>
+    <div class="btn-container">
+      <p class="btn-text">Filtrer</p>
+      <button class="filter1">Ingen filtre</button>
+      <button class="filter2">Elektriske biler</button>
+      <button class="filter3">Elektriske biler med mere end 2 sæder</button>
+      <button class="filter4">Elektriske biler ejet af Jonas</button>
+      <button class="filter5">Rugbrødsmotor med mere end 1 sæde</button>
+      <!-- <button data-filter="noFilter">Ingen filter</button>
+      <button data-filter="electricVeh">Elektriske biler</button>
+      <button data-filter="moreThanTwoSeatsVeh">Mere end to passagerer</button>
+      <button data-filter="ownedByJonasVeh">
+        Elektriske fartøjer ejet af Jonas
+      </button>
+      <button data-filter="ryeBreadMoreThanOneVeh">
+        Rugbrødsmotor med mere end én passager
+      </button> -->
+    </div>
     <table>
-
-        <thead>
-            <tr>
-                <th>Type</th>
-                <th>Fuel</th>
-                <th>Passengers</th>
-                <th>Stops</th>
-                <th>Owned By</th>
-                <th>Electric</th>
-                <th>Tandem</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-
-
-</body>
-
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Fuel</th>
+          <th>Passengers</th>
+          <th>Stops</th>
+          <th>Owned By</th>
+          <th>Electric</th>
+          <th>Tandem</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </body>
 </html>

@@ -38,3 +38,7 @@ tfoot th {
 tfoot td {
     font-weight: bold;
 }
+
+.btn-text {
+    display: inline;
+}

@@ -8,21 +8,43 @@ const bc = [
 ];
 
 breadcrumbBtn.addEventListener("click", generateBc);
-let counter = 0;
+// let counter = 0;
 
-function generateBc() {
-    bc.forEach(element => {
-        counter++;
-        if (counter < 3) {
-            console.log(counter);
+// function generateBc() {
+//     bc.forEach(element => {
+//         counter++;
+//         if (counter < 3) {
+//             console.log(counter);
+//             const li = document.createElement("li");
+//             list.appendChild(li);
+//             const a = document.createElement("a");
+//             a.innerHTML = element.name;
+//             a.href = element.link;
+//             li.appendChild(a);
+//         }
+
+//         else {
+//             const li = document.createElement("li");
+//             list.appendChild(li);
+//             const p = document.createElement("p");
+//             p.innerHTML = element.name;
+//             li.appendChild(p);
+//         }
+//     });
+// }
+
+
+// foreach med indbygget iterator
+function generateBc(){
+    bc.forEach((element, i) => {
+        if (i < bc.length-1) {
             const li = document.createElement("li");
             list.appendChild(li);
             const a = document.createElement("a");
             a.innerHTML = element.name;
-            a.href = element.name;
+            a.href = element.link;
             li.appendChild(a);
         }
-
         else {
             const li = document.createElement("li");
             list.appendChild(li);
