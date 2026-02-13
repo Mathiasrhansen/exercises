@@ -34,11 +34,11 @@ function click() {
     }
 }
 
-
 function fixText() {
-    let textContent = textP.textContent;
+    let textContent = textP.innerHTML;
     curseWords.forEach(element => {
-        textContent = textContent.replaceAll(element.bad, element.good)
+        textContent = textContent.replaceAll(element.bad,
+            `<span>${element.good}</span>`)
     });
-    textP.textContent = textContent;
+    textP.innerHTML = textContent;
 }

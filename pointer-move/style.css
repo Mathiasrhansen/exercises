@@ -1,0 +1,7 @@
+:root {
+    --pointer: 100%;
+}
+
+body {
+    background-color: hsl(200, 100%, var(--pointer));
+}

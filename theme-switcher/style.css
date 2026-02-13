@@ -60,6 +60,14 @@ header {
 main {
     background-color: var(--body-bg-color);
     color: var(--txt-color);
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    width: 300px;
+    height: auto;
+    margin-top: 20px;
 }
 
 footer {
